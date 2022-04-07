@@ -49,7 +49,7 @@ Pod::Spec.new do |spec|
  }
   spec.author    = "Zoom Video Communications, Inc."
   spec.source       = { 
-      http: "https://github.com/carsonzoom/zoom-video-sdk-iOS/releases/download/v#{spec.version}/ZoomVideoSDK.zip"
+    :http => 'https://github.com/carsonzoom/zoom-video-sdk-iOS/releases/download/v1.2.3/ZoomVideoSDK.zip'
   }
   spec.requires_arc = true
   spec.xcconfig = {
