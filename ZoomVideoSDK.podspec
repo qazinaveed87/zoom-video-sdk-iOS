@@ -49,11 +49,8 @@ Pod::Spec.new do |spec|
  }
   spec.author    = "Zoom Video Communications, Inc."
   spec.source       = { 
-    :http => 'https://github.com/carsonzoom/zoom-video-sdk-iOS/releases/download/v1.2.3/ZoomVideoSDK.zip'
+    :http => "https://github.com/carsonzoom/zoom-video-sdk-iOS/releases/download/v#{spec.version}/ZoomVideoSDK.zip"
   }
-  spec.requires_arc = true
-  spec.xcconfig = {
-    "ENABLE_BITCODE" => "NO"
-  }
-  spec.vendored_frameworks = "Frameworks/ZoomVideoSDK.xcframework"
+  spec.vendored_frameworks = "ZoomVideoSDK/ZoomVideoSDK.xcframework"
+  spec.pod_target_xcconfig = { 'VALID_ARCHS' => 'armv7 arm64 x86_64'}
 end
