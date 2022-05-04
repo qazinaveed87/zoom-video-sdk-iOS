@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |spec|
   spec.name         = "ZoomVideoSDK"
-  spec.version      = "1.2.3"
-  spec.summary      = "Zoom iOS Video SDK"
+  spec.version      = "1.3.0"
+  spec.summary      = "Zoom Video SDK for iOS"
   spec.platform     = :ios
   spec.ios.deployment_target = "9.0"
   spec.description  = <<-DESC
@@ -48,9 +48,23 @@ Pod::Spec.new do |spec|
   LICENSE
  }
   spec.author    = "Zoom Video Communications, Inc."
+  spec.requires_arc     = true
   spec.source       = { 
-    :http => "https://github.com/carsonzoom/zoom-video-sdk-iOS/releases/download/v#{spec.version}/ZoomVideoSDK.zip"
+    :http => "https://github.com/carsonzoom/zoom-video-sdk-iOS/releases/download/v#{spec.version}/zoom-video-sdk-iOS.zip", :type => "zip"
   }
-  spec.vendored_frameworks = "ZoomVideoSDK/ZoomVideoSDK.xcframework"
-  spec.pod_target_xcconfig = { 'VALID_ARCHS' => 'armv7 arm64 x86_64'}
+
+  spec.subspec 'ZoomVideoSDK' do |zv|
+    zv.name = "ZoomVideoSDK"
+    zv.vendored_frameworks = "ZoomVideoSDK.xcframework"  
+  end
+
+  spec.subspec 'ZoomVideoSDKScreenShare' do |zs|
+    zs.name = "ZoomVideoSDKScreenShare"
+    zs.vendored_frameworks = "ZoomVideoSDKScreenShare.xcframework"
+  end
+
+  spec.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  spec.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 end
+
+
