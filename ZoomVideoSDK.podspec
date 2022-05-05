@@ -55,12 +55,12 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'ZoomVideoSDK' do |zv|
     zv.name = "ZoomVideoSDK"
-    zv.vendored_frameworks = "ZoomVideoSDK.xcframework"  
+    zv.vendored_frameworks = "zoom-video-sdk-iOS/ZoomVideoSDK.xcframework"  
   end
 
   spec.subspec 'ZoomVideoSDKScreenShare' do |zs|
     zs.name = "ZoomVideoSDKScreenShare"
-    zs.vendored_frameworks = "ZoomVideoSDKScreenShare.xcframework"
+    zs.vendored_frameworks = "zoom-video-sdk-iOS/ZoomVideoSDKScreenShare.xcframework"
   end
 
   spec.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
